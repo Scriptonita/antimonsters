@@ -1,0 +1,126 @@
+<!DOCTYPE html5>
+<html>
+<!--
+
+    https://openclipart.org/detail/80479/toxic-icon
+    https://openclipart.org/detail/76315/4triangles-linked
+    https://openclipart.org/detail/17018/iconarrowleftgreen
+    <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    <a href="http://www.freepik.es/vector-gratis/escudo-con-marca-de-verificacion_794324.htm">Diseñado por Freepik</a>
+    https://openclipart.org/detail/211864/matticonssystemupgrade
+    https://openclipart.org/detail/202402/natural-number-line-100-without-numbers
+    https://github.com/Haroenv/floating.js
+    http://www.clipartkid.com/free-border-clipart-530tnM-clipart/
+    <a href='http://www.freepik.com/free-vector/globe_796739.htm'>Designed by Freepik</a>
+    http://www.freesound.org/people/FreqMan/sounds/32683/
+    <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    https://openclipart.org/detail/221740/bubble-pack
+    http://www.freesound.org/people/BristolStories/sounds/65911/
+    http://www.freesound.org/people/Trebblofang/sounds/175988/
+    http://www.freesound.org/people/clickastly/sounds/63797/
+    http://www.freesound.org/people/Timbre/sounds/70138/
+    http://www.freesound.org/people/infobandit/sounds/28693/
+    <a href="http://www.freepik.com/free-vector/safety-lock-logo_717950.htm">Designed by Freepik</a>
+    <a href="http://www.freepik.com/free-vector/happy-boy-and-girl-design_956156.htm">Designed by Freepik</a>
+    http://www.freepik.com/index.php?goto=41&idd=567756&url=aHR0cDovL3d3dy5wc2RncmFwaGljcy5jb20vaWNvbnMvcmFkYXItc2NyZWVuLWljb24tcHNkLw==
+    http://www.orangefreesounds.com/dream-harp-sound-effect/
+    http://www.orangefreesounds.com/chimes-sound-effect/
+    http://www.freesound.org/people/Scrampunk/sounds/344696/
+    http://www.freesound.org/people/suntemple/sounds/241809/
+    https://openclipart.org/detail/195743/bubble
+    https://openclipart.org/detail/202344/abstract-star-pattern
+    https://openclipart.org/detail/244665/location-gps-symbol
+    http://codepen.io/mnmxmx/pen/VjjvEq
+    http://www.freesound.org/people/DanielsonIII/sounds/68398/
+-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <title>Monster Protect</title>
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/proteccion.css" />
+    <link rel="stylesheet" type="text/css" href="css/scanner.css" />
+    <link rel="stylesheet" type="text/css" href="css/mapa.css" />
+  </head>
+  <body>
+      <div id="marco"></div>
+      <main id="contenedor">
+        <div id="scanner">
+          <div class="filtros"></div>
+          <img id="objetivo" />
+        </div>
+        <div id="proteccion" class="valign-wrapper">
+          <!--<div id="protegiendo">-->
+            <img id="trasero" class="rayos" />
+            <div id="hechizo" class="center-aling">
+
+            </div>
+          <!--</div> -->
+        </div>
+        <div id="mapa">
+          <div id="googlemaps"></div>
+          <div id="radar" class="valign-wrapper">
+             <!--<img id="manilla" src="./img/radar-manilla.png"/> -->
+            <div id="onda" class="circulo center-aling" ></div>
+          </div>
+        </div>
+      </main>
+      <footer class="page-footer">
+        <div class="controls container">
+          <div class="row">
+            <div class="col s3 m3 l3">
+                <img id="scanner-boton" src="img/boton_scanner_pulsado.png" class="circle indigo responsive-img z-depth-3" />
+                <br />
+                <!-- <span id="scanner-text" class="center-align">Scanner</span> -->
+            </div>
+            <div class="col s3 m3 l3">
+                <img id="proteccion-boton"  src="img/boton_proteccion.png" alt="proteccion" class="circle indigo responsive-img z-depth-3" />
+                <br />
+                <!-- <span id="proteccion-text" class="center-align">Protección</span> -->
+            </div>
+
+            <div class="col s3 m3 l3">
+                <img id="mapa-boton"  src="img/boton_mapa.png" alt="proteccion" class="circle indigo responsive-img z-depth-3" />
+                <br />
+                <!-- <span id="mapa-text" class="center-align">Mapa</span> -->
+            </div>
+
+            <div class="col s3 m3 l3">
+                <img id="accion-boton" src="img/boton_accion.png" alt="accion" class="circle indigo responsive-img z-depth-3" />
+                <br />
+                <!-- <span id="accion-text" class="center-align">Acción</span> -->
+            </div>
+          </div>
+          <div class=" row center-align">
+            <span id="nombreApp" >AntiMonsterS</span>
+          </div>
+        </div>
+        <!--
+        <div id="audiosApp">
+          <audio id="clickBoton"><source src="./audio/boton.mp3" type="audio/wav" id="audioB" /></audio>
+          <audio id="audioHechizo"><source src="./audio/proteccion.mp3" type="audio/wav" id="audioH" /></audio>
+          <audio id="audioSonar"><source src="./audio/sonar.mp3" type="audio/wav" id="audioSo" /></audio>
+          <audio id="audioScanner"><source src="./audio/scanner.mp3" type="audio/wav" id="audioScn" /></audio>
+          <audio id="audioOk"><source src="./audio/ok.mp3" type="audio/wav" id="audioO" /></audio>
+        </div>
+      -->
+      </footer>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="application/javascript" src="js/fastclick.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/variables.js"></script>
+    <script type="text/javascript" src="js/gradientes.js"></script>
+    <script type="text/javascript" src="js/proteccion.js"></script>
+    <script type="text/javascript" src="js/hechizo.js"></script>
+    <script type="text/javascript" src="js/mapa.js"></script>
+    <script type="text/javascript" src="js/scanner.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+  </body>
+</html>

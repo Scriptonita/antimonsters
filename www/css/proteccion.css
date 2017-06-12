@@ -1,0 +1,48 @@
+#hechizo, #proteccion {
+  position: relative;
+}
+
+.rayos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fondoHechizo2 {
+  0% {
+    background-color: #13fdfe;
+  }
+  50% {
+    background-color: #020232;
+  }
+  100% {
+    background-color: #13fdfe;
+  }
+}
+
+.bienHecho {
+  animation: mover 5.5s 1;
+}
+
+@keyframes mover {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
