@@ -81,7 +81,9 @@ var app = {
   pararProteccion: function() {
     console.log("Se para la protección");
     $hechizoAccion = false;
-
+    window.cancelAnimationFrame($animacion);
+    contextH = document.getElementById("canvasH").getContext("2d");
+    contextH.clearRect(0, 0, width, height);
     window.plugins.NativeAudio.stop("hechizo");
     //$protecSound.pause(); // Hay que posicionar a 0
     //$protecSound.seekTo(0); // por si se vuelve a dar al play()
