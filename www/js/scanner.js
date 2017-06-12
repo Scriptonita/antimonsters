@@ -5,33 +5,41 @@ function scanearDimensiones() {
         case 0:
           //$(".filtros").css("background", "rgba(255, 0, 0, 0.5)");
           //$(".filtros").css("filter", "blur(4px)");
-          var aux = "";
+          //var aux = "";
+          /*
           CameraPreview.getSupportedWhiteBalanceModes(function(whiteBalanceMode){
             aux = whiteBalanceMode;
-          });
-          $("#nombreApp").html(aux);
-          CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.CLOUDY_DAYLIGHT);
+          });*/
+          //$("#nombreApp").html(aux);
+          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.CLOUDY_DAYLIGHT);
 
           break;
         case 1:
           //$(".filtros").css("background", "rgba(0, 255, 0, 0.4)");
           //$(".filtros").css("filter", "blur(4px)");
-          CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.FLUORESCENT);
+          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.FLUORESCENT);
+
+          $("#filtros").attr("src", "./img/celdas.gif");
+          $("#filtros").show();
           break;
         case 2:
           //$(".filtros").css("background", "rgba(0, 0, 0, 0.5)");
           //$(".filtros").css("filter", "grayscale(100%)");
-          CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.SHADE);
+          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.SHADE);
+          $("#filtros").attr("src", "./img/lineas.gif");
           break;
         case 3:
           //$(".filtros").css("background", "rgba(0, 0, 0, 0.45)");
           //$(".filtros").css("filter", "sepia(100%)");
-          CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.TWILIGHT);
+          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.TWILIGHT);
+          $("#filtros").attr("src", "./img/espacio.gif");
           break;
         case 4:
           //$(".filtros").css("background", "transparent");
           //$(".filtros").css("filter", "none");
-          CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.INCANDESCENT);
+          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.INCANDESCENT);
+          $("#filtros").hide();
+          $("#filtros").attr("src", "");
           break;
         default:
           break;
