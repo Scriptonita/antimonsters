@@ -6,7 +6,6 @@
 
 
 $efectos = ['negative', 'mono', 'posterize', 'sepia', 'none'];
-$colorPallete = ["#00f", "#00a", "#00b", "#00c", "#00d", "#00e"];
 $efectIndex = 0;
 $protectIndex = 0;$aux4x100 = 0;
 $temp = null;
@@ -30,6 +29,7 @@ $hechizoAccion = false;
 $protectStatus = 0;
 $scannerStatus = 0;
 $alternar_rayos = 0;
+$animacion = null;
 
 
 function iniciarVariables () {
@@ -52,6 +52,7 @@ function iniciarVariables () {
   $watchID = null;
   $hechizoAccion = false;
   $protectStatus = 0;
-  $scannerStatus = 0;  
+  $scannerStatus = 0;
   $alternar_rayos = 0;
+  $animacion = null;
 }
