@@ -69,7 +69,7 @@ var app = {
     $("#accion-boton").attr("src", "./img/boton_accion_pulsado.png");
     iniciarHechizo();
     //$("#canvasH").css("filter","url('#goo')");
-    $vibraciones = 0;
+    $vibraciones = 1;
     //navigator.vibrate(3000);
     vibraMovil();
     $vibr = setInterval(function() {

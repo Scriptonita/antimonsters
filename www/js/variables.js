@@ -7,7 +7,8 @@
 
 $efectos = ['negative', 'mono', 'posterize', 'sepia', 'none'];
 $efectIndex = 0;
-$protectIndex = 0;$aux4x100 = 0;
+$protectIndex = 0;
+$aux4x100 = 0;
 $temp = null;
 $vibr = null;
 $scan = null;
