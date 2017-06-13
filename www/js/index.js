@@ -54,7 +54,7 @@ var app = {
     vibraMovil();
     $vibr = setInterval(function() {
       vibraMovil();
-      $("#nombreApp").html("Vibración " + $vibraciones);
+      //$("#nombreApp").html("Vibración " + $vibraciones);
     }, 6000);
   },
 
@@ -66,7 +66,7 @@ var app = {
     contextH.clearRect(0, 0, width, height);
     window.plugins.NativeAudio.stop("hechizo");
     clearInterval($vibr);
-    $("#nombreApp").html("AntiMonsterS");
+    //$("#nombreApp").html("AntiMonsterS");
     $("#accion-boton").attr("src", "./img/boton_accion.png");
     mostrarSolo("proteccion");
   },
