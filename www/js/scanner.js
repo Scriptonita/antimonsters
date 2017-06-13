@@ -75,7 +75,6 @@ function scanearDimensiones() {
 
     } else {
       CameraPreview.setColorEffect('none');
-      $("#nombreApp").html("AntiMonsterS");
       $("#accion-boton").removeClass("red");
       $("#accion-boton").addClass("indigo");
       CameraPreview.setFlashMode("off");

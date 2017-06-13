@@ -94,7 +94,6 @@ function vibraMovil() {
   $temp = setTimeout(function() {
     if ($alternar_rayos === true) {
       console.log("Delante: alternar_rayos: " + $alternar_rayos);
-      $("#nombreApp").html("Vibración " + $vibraciones + " Rayete");
       $("#rayos").attr("src", "");
       $("#rayos").removeClass("efectoRayo");
       $("#rayos").hide();
@@ -114,7 +113,6 @@ function proteccionOK() {
   clearInterval($vibr);
   window.cancelAnimationFrame($animacion);
   contextH.clearRect(0, 0, width, height);
-  $("#nombreApp").html("AntiMonsterS");
   $hechizoAccion = false;
   $("#hechizo").html("");
   $("#hechizo").html(
