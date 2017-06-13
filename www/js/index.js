@@ -15,7 +15,6 @@ var app = {
 
   iniciarScaneoProfundo: function() {
     console.log("Se inicia el scaneado");
-
     $("#accion-boton").attr("src", "./img/boton_accion_pulsado.png");
     $("#accion-boton").removeClass("indigo");
     $("#accion-boton").addClass("red");
@@ -27,33 +26,14 @@ var app = {
     $("#objetivo").attr("width", "100%");
     $("#objetivo").attr("height", "100%");
     $("#objetivo").show();
-
     CameraPreview.setFlashMode('torch');
     $efectIndex = 0;
-    //$scannerSound.play();
-
     scanearDimensiones();
-    /*
-    window.plugins.NativeAudio.play("scanner",
-      function() {
-        console.log("Scanner de dimensión " + $efectIndex + " iniciado");
-      },
-      function() {
-        console.log("Error scaneando dimensión" + $efectIndex);
-      },
-      function() {
-        console.log("Scanner de dimensión " + $efectIndex + " completado");
-        scanearDimensiones();
-      }
-    );
-    */
   },
 
   pararScaneoProfundo: function() {
     console.log("Se para el scaneado");
     CameraPreview.setFlashMode('off');
-    //$scannerSound.pause();
-
     window.plugins.NativeAudio.stop("scanner");
     //$scannerSound.seekTo(0);
     CameraPreview.setColorEffect("none");
@@ -85,8 +65,6 @@ var app = {
     contextH = document.getElementById("canvasH").getContext("2d");
     contextH.clearRect(0, 0, width, height);
     window.plugins.NativeAudio.stop("hechizo");
-    //$protecSound.pause(); // Hay que posicionar a 0
-    //$protecSound.seekTo(0); // por si se vuelve a dar al play()
     clearInterval($vibr);
     $("#nombreApp").html("AntiMonsterS");
     $("#accion-boton").attr("src", "./img/boton_accion.png");
@@ -108,8 +86,6 @@ var app = {
     dimensionarMapa();
     mostrarSolo("mapa");
     navigator.geolocation.getCurrentPosition(inicializaMapa, errorMapa);
-    //$watchID = navigator.geolocation.watchPosition(inicializaMapa, errorMapa, { timeout: 15000, enableHighAccuracy: false});
-    //$scan = setInterval(function(){$sonarSound.play();},5000);
   },
 
   iniciarLocalizacionPrecisa: function() {
@@ -125,7 +101,6 @@ var app = {
 
   botonScanner: function(event) {
     event.stopImmediatePropagation();
-    //$botonSound.play();
     window.plugins.NativeAudio.play('boton',
       function(){
         console.log("Botón Presionado");
@@ -137,31 +112,26 @@ var app = {
         console.log("Botón Ok");
       }
     );
-    if ($enMapa) {
-      //clearInterval($scan);
-      //$sonarSound.stop();
-      if ($watchID !== null) {
-        navigator.geolocation.clearWatch($watchID);
-        $watchID = null;
-      }
-    }
-    if (!$enScanner) {
+
+    if ($enScanner === false && $accion === false) {
       actualizaBotones("scanner");
+      $("body").css("background-image","");
+      $("body").css("background-color", "transparent");
+      if ($enMapa) {
+        if ($watchID !== null) {
+          navigator.geolocation.clearWatch($watchID);
+          $watchID = null;
+        }
+      }
+      $enScanner = true;
+      $enProteccion = false;
+      $enMapa = false;
       app.escanear();
     }
-    //app.estado("scanner-boton");
-
-    $("body").css("background-image","");
-    $("body").css("background-color", "transparent");
-    $enScanner = true;
-    $enProteccion = false;
-    $enMapa = false;
   },
 
   botonProteccion: function(event) {
     event.stopImmediatePropagation();
-    //$botonSound.play();
-    //window.plugins.NativeAudio.play('boton');
     window.plugins.NativeAudio.play('boton',
       function(){
         console.log("Botón Presionado");
@@ -174,22 +144,19 @@ var app = {
       }
     );
 
-    if ($enMapa) {
-      //clearInterval($scan);
-      //$sonarSound.pause();
-      if ($watchID !== null) {
+    if ($enProteccion === false && $accion === false) {
+      actualizaBotones("proteccion");
+      if ($enMapa) {
+        if ($watchID !== null) {
         navigator.geolocation.clearWatch($watchID);
         $watchID = null;
+        }
       }
-    }
-    if (!$enProteccion) {
-      actualizaBotones("proteccion");
+      $enScanner = false;
+      $enProteccion = true;
+      $enMapa = false;
       app.proteger();
     }
-    $enScanner = false;
-    $enProteccion = true;
-    $enMapa = false;
-    //app.estado("proteccion-boton");
   },
 
   botonMapa: function(event) {
@@ -206,18 +173,19 @@ var app = {
         console.log("Botón Ok");
       }
     );
-    $("body").css("background-image","");
-    $("body").css("background-color", "transparent");
-    $enScanner = false;
-    $enProteccion = false;
-    $enMapa = true;
-    actualizaBotones("mapa");
-    app.aMapa();
+    if ($enMapa === false && $accion === false) {
+      actualizaBotones("mapa");
+      $("body").css("background-image","");
+      $("body").css("background-color", "transparent");
+      $enScanner = false;
+      $enProteccion = false;
+      $enMapa = true;
+      app.aMapa();
+    }
   },
 
   botonAccion: function(event) {
     event.stopImmediatePropagation();
-    //$botonSound.play();
     window.plugins.NativeAudio.play('boton',
       function(){
         console.log("Botón Presionado");
@@ -231,8 +199,6 @@ var app = {
     );
     console.log("Botón Acción Pulsado");
     if (!$enMapa) {
-      //app.estado("accion-boton");
-      //liberarSonidos();
       if ($enScanner && !$accion) {
         // Zona escanner a la espera
         app.iniciarScaneoProfundo();
@@ -271,12 +237,6 @@ var app = {
     }, false);
 
     iniciarVariables();
-    /*
-    // Dimensionar App
-    $camWidth = window.innerWidth;
-                                      //botones = $("footer.page-footer").height();
-    $camHeight = (window.innerHeight * 80) / 100; // - 40;
-    */
     // Carga de Sonidos
     cargarSonidos();
 
