@@ -19,27 +19,27 @@ function scanearDimensiones() {
           //$(".filtros").css("filter", "blur(4px)");
           //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.FLUORESCENT);
 
-          $("#filtros").attr("src", "./img/celdas.gif");
+          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
           $("#filtros").show();
           break;
         case 2:
           //$(".filtros").css("background", "rgba(0, 0, 0, 0.5)");
           //$(".filtros").css("filter", "grayscale(100%)");
           //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.SHADE);
-          $("#filtros").attr("src", "./img/lineas.gif");
+          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
           break;
         case 3:
           //$(".filtros").css("background", "rgba(0, 0, 0, 0.45)");
           //$(".filtros").css("filter", "sepia(100%)");
           //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.TWILIGHT);
-          $("#filtros").attr("src", "./img/espacio.gif");
+          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
           break;
         case 4:
           //$(".filtros").css("background", "transparent");
           //$(".filtros").css("filter", "none");
           //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.INCANDESCENT);
           $("#filtros").hide();
-          $("#filtros").attr("src", "");
+          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
           break;
         default:
           break;
