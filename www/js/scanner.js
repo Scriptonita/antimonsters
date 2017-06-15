@@ -1,65 +1,13 @@
 function scanearDimensiones() {
   //if ($scannerStatus !== 3) {
     if ($efectIndex < 5) {
-      switch ($efectIndex) {
-        case 0:
-          //$(".filtros").css("background", "rgba(255, 0, 0, 0.5)");
-          //$(".filtros").css("filter", "blur(4px)");
-          //var aux = "";
-          /*
-          CameraPreview.getSupportedWhiteBalanceModes(function(whiteBalanceMode){
-            aux = whiteBalanceMode;
-          });*/
-          //$("#nombreApp").html(aux);
-          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.CLOUDY_DAYLIGHT);
-
-          break;
-        case 1:
-          //$(".filtros").css("background", "rgba(0, 255, 0, 0.4)");
-          //$(".filtros").css("filter", "blur(4px)");
-          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.FLUORESCENT);
-
-          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
-          $("#filtros").show();
-          break;
-        case 2:
-          //$(".filtros").css("background", "rgba(0, 0, 0, 0.5)");
-          //$(".filtros").css("filter", "grayscale(100%)");
-          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.SHADE);
-          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
-          break;
-        case 3:
-          //$(".filtros").css("background", "rgba(0, 0, 0, 0.45)");
-          //$(".filtros").css("filter", "sepia(100%)");
-          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.TWILIGHT);
-          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
-          break;
-        case 4:
-          //$(".filtros").css("background", "transparent");
-          //$(".filtros").css("filter", "none");
-          //CameraPreview.setWhiteBalanceMode(CameraPreview.WHITE_BALANCE_MODE.INCANDESCENT);
-          $("#filtros").hide();
-          $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
-          break;
-        default:
-          break;
+      if ($efectIndex > 0) {
+        CameraPreview.setColorEffect($efectos[$efectIndex]);
+        $("#filtros").attr("src", "./img/efecto_" + $efectIndex + ".gif");
+        $("#filtros").show();
+        break;
       }
-
-      /*
-        CameraPreview.setColorEffect($efectos[$efectIndex],
-          function() {
-            //$("#objetivo").attr("src", "./img/mirilla_" + $efectIndex + ".png");
-            $("#nombreApp").html("Filtro " + $efectos[$efectIndex] + " aplicado");
-
-          },
-          function() {
-            $("#nombreApp").html("Error efecto" + error);
-          });
-
-        console.log("Aplicado Efecto " + $efectos[$efectIndex]);
-        console.log("EfectoIndice: " + $efectIndex);
-*/
-        window.plugins.NativeAudio.play("scanner",
+      window.plugins.NativeAudio.play("scanner",
           function() {
             console.log("Scanner de dimensión " + $efectIndex + " iniciado");
           },
@@ -71,10 +19,11 @@ function scanearDimensiones() {
             $efectIndex++;
             scanearDimensiones();
           }
-        );
+      );
 
     } else {
       CameraPreview.setColorEffect('none');
+      $("#filtros").hide();
       $("#accion-boton").removeClass("red");
       $("#accion-boton").addClass("indigo");
       CameraPreview.setFlashMode("off");
