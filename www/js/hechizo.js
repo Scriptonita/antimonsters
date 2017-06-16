@@ -54,14 +54,23 @@ function iniciarHechizo() {
   }, 6000);
   */
 
-
   contextH = document.getElementById("canvasH").getContext("2d");
-  colorPallete = ["#66aac1", "#6644aa", "#cc1167", "#ff2827", "#ff5514", "#ffcc22" , "#89ba4e", "#99ddbb", "#ffcc22"];
+  colorPallete = [
+    "#66aac1",
+    "#6644aa",
+    "#cc1167",
+    "#ff2827",
+    "#ff5514",
+    "#ffcc22",
+    "#89ba4e",
+    "#99ddbb",
+    "#ffcc22"
+  ];
   balls = [];
   count = 0;
   width = canvasH.width = $("main").width();
   height = canvasH.height = $("main").height();
-  origin = {x: width / 2, y: height / 2};
+  origin = { x: width / 2, y: height / 2 };
   //mouse = {x: width / 2, y: height / 2};
   randomCount = 1;
   ejecutarHechizo();
@@ -140,28 +149,47 @@ function proteccionOK() {
   //$("#protegidoOk").attr("src", "./img/seguros.png");
   //$("#protegidoOk").addClass("bienHecho");
 
-  window.plugins.NativeAudio.play("temaOk");
-  //$okSound.play();
-  $temp = setTimeout(function() {
-    actualizaBotones("proteccion");
-    mostrarSolo("proteccion");
-    console.log("Se programa la vuelta a proteccion en 10 Seg");
-    $accion = false;
-    $("#protegidoOk").removeClass("bienHecho");
-    $("#proteccion").addClass("fondoPoderoso");
-  }, 6000);
-  //}
+  window.plugins.NativeAudio.play(
+    "temaOk",
+    function() {
+      console.log("Animación fin de scanner iniciado");
+    },
+    function() {
+      console.log("Fallo en el audio de animación");
+    },
+    function() {
+      window.plugins.NativeAudio.play(
+        "zonaProtegida",
+        function() {
+          console.log("Audio fin de scanner iniciado");
+        },
+        function() {
+          console.log("Error audio fin de scanner iniciado");
+        },
+        function() {
+          $temp = setTimeout(function() {
+            actualizaBotones("proteccion");
+            mostrarSolo("proteccion");
+            console.log("Se programa la vuelta a proteccion en 6 Seg");
+            $accion = false;
+            $("#protegidoOk").removeClass("bienHecho");
+            $("#proteccion").addClass("fondoPoderoso");
+          }, 2000);
+        }
+      );
+    }
+  );
 }
 
-function ejecutarHechizo (){
+function ejecutarHechizo() {
   contextH.clearRect(0, 0, width, height);
-  if(count === randomCount){
+  if (count === randomCount) {
     balls.push(new Ball());
     count = 0;
     randomCount = 3 + Math.floor(Math.random() * 5);
   }
   count++;
-  for(var i = 0; i < balls.length; i++){
+  for (var i = 0; i < balls.length; i++) {
     var b = balls[i];
     contextH.fillStyle = b.color;
     contextH.beginPath();
@@ -178,49 +206,49 @@ function ejecutarHechizo (){
   contextH.arc(origin.x, origin.y, 40, 0, Math.PI * 2, false);
   contextH.fill();
 
-  for(var i = 0; i < balls.length; i++){
+  for (var i = 0; i < balls.length; i++) {
     var b = balls[i];
-    if(
+    if (
       b.x + b.r < 0 ||
       b.x - b.r > width ||
       b.y + b.r < 0 ||
       b.y - b.r > height ||
       b.r < 0
-    ){
+    ) {
       balls.splice(i, 1);
     }
   }
   $animacion = window.requestAnimationFrame(ejecutarHechizo);
 }
 
-class Ball{
-  constructor(){
+class Ball {
+  constructor() {
     this.x = origin.x;
     this.y = origin.y;
     this.angle = Math.PI * 2 * Math.random();
-    this.vx = (1.3 + Math.random() * .3) * Math.cos(this.angle);
-    this.vy = (1.3 + Math.random() * .3) * Math.sin(this.angle);
+    this.vx = (1.3 + Math.random() * 0.3) * Math.cos(this.angle);
+    this.vy = (1.3 + Math.random() * 0.3) * Math.sin(this.angle);
     this.r = 6 + 3 * Math.random();
     this.color = colorPallete[Math.floor(Math.random() * colorPallete.length)];
   }
 
-  update(){
+  update() {
     this.x += this.vx;
     this.y += this.vy;
-    this.r -= .01;
+    this.r -= 0.01;
   }
 }
 
-function removeBall(){
-  for(var i = 0; i < balls.length; i++){
+function removeBall() {
+  for (var i = 0; i < balls.length; i++) {
     var b = balls[i];
-    if(
+    if (
       b.x + b.r < 0 ||
       b.x - b.r > width ||
       b.y + b.r < 0 ||
       b.y - b.r > height ||
       b.r < 0
-    ){
+    ) {
       balls.splice(i, 1);
     }
   }

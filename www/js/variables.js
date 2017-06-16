@@ -5,7 +5,7 @@
 // FIXME: Al parar scanner sigue sonando, hay que controlar la interrupción que hace el media.puse();
 
 
-$efectos = ['negative', 'mono', 'posterize', 'sepia', 'none'];
+$efectos = ['none', 'negative', 'mono', 'posterize', 'sepia'];
 $efectIndex = 0;
 $protectIndex = 0;
 $aux4x100 = 0;

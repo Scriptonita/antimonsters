@@ -1,4 +1,4 @@
-function dimensionarApp () {
+function dimensionarApp() {
   $("#scanner").css("width", "100%");
   $("#scanner").css("height", "100%");
   $("#proteccion").css("width", "100%");
@@ -21,55 +21,128 @@ function cargarSonidos () {
 }
 */
 
-
-function cargarSonidos () {
-  window.plugins.NativeAudio.preloadComplex('scanner', "audio/scanner.mp3", 1, 1, 0,
-    function (aux) {
+function cargarSonidos() {
+  window.plugins.NativeAudio.preloadComplex(
+    "scanner",
+    "audio/scanner.mp3",
+    1,
+    1,
+    0,
+    function(aux) {
       console.log("Audio Scanner Cargado correctamente");
     },
-    function (error) {
+    function(error) {
       console.log("Audio Scanner Error: ", error);
-    });
+    }
+  );
 
-  window.plugins.NativeAudio.preloadComplex('hechizo', "audio/proteccion.mp3", 1, 1, 0,
-    function (aux) {
+  window.plugins.NativeAudio.preloadComplex(
+    "hechizo",
+    "audio/proteccion.mp3",
+    1,
+    1,
+    0,
+    function(aux) {
       console.log("Audio Hechizo Cargado correctamente");
     },
-    function (error) {
+    function(error) {
       console.log("Audio Hechizo Error: ", error);
-    });
+    }
+  );
 
-  window.plugins.NativeAudio.preloadComplex('sonar', "audio/sonar.mp3", 1, 1, 0,
-    function (aux) {
+  window.plugins.NativeAudio.preloadComplex(
+    "sonar",
+    "audio/sonar.mp3",
+    1,
+    1,
+    0,
+    function(aux) {
       console.log("Audio sonar cargado correctamente");
     },
-    function (error) {
+    function(error) {
       console.log("Audio sonar Error ", error);
-  });
+    }
+  );
 
-  window.plugins.NativeAudio.preloadComplex('boton', "audio/boton.mp3", 1, 1, 0,
-    function (aux) {
+  window.plugins.NativeAudio.preloadComplex(
+    "boton",
+    "audio/boton.mp3",
+    1,
+    1,
+    0,
+    function(aux) {
       console.log("Audio botón cargado correctamente");
     },
-    function (error) {
+    function(error) {
       console.log("Audio botón Error", error);
-  });
+    }
+  );
 
-  window.plugins.NativeAudio.preloadComplex('temaOk', "audio/ok.mp3", 1, 1, 0,
-    function (aux) {
+  window.plugins.NativeAudio.preloadComplex(
+    "temaOk",
+    "audio/ok.mp3",
+    1,
+    1,
+    0,
+    function(aux) {
       console.log("Audio Ok Cargado correctamente");
     },
-    function (error) {
+    function(error) {
       console.log("Audio Ok Error: ", error);
-    });
+    }
+  );
+
+  var languaje = navigator.language || navigator.userLanguage;
+  var lng = languaje.substring(0, 2);
+
+  if (
+    lng !== "es" &&
+    lng !== "en" &&
+    lng !== "de" &&
+    lng !== "fr" &&
+    lng !== "it"
+  ) {
+    lng = "en";
+  }
+
+  window.plugins.NativeAudio.preloadComplex(
+    "zonaProtegida",
+    "audio/Zona_Protegida_" + lng + ".mp3",
+    1,
+    1,
+    0,
+    function(aux) {
+      console.log("Audio Zona Protegida Cargado correctamente");
+    },
+    function(error) {
+      console.log("Audio Zona Protegida Error: ", error);
+    }
+  );
+
+  window.plugins.NativeAudio.preloadComplex(
+    "zonaSegura",
+    "audio/Zona_Segura_" + lng + ".mp3",
+    1,
+    1,
+    0,
+    function(aux) {
+      console.log("Audio Zona Segura Cargado correctamente");
+    },
+    function(error) {
+      console.log("Audio Zona Segura Error: ", error);
+    }
+  );
 }
 
 function liberarSonidos() {
-  window.plugins.NativeAudio.unload( 'hechizo' );
-  window.plugins.NativeAudio.unload( 'scanner' );
-  window.plugins.NativeAudio.unload( 'temaOk' );
-  window.plugins.NativeAudio.unload( 'boton' );
-  window.plugins.NativeAudio.unload( 'sonar' );
+  window.plugins.NativeAudio.unload("hechizo");
+  window.plugins.NativeAudio.unload("scanner");
+  window.plugins.NativeAudio.unload("temaOk");
+  window.plugins.NativeAudio.unload("boton");
+  window.plugins.NativeAudio.unload("sonar");
+  window.plugins.NativeAudio.unload("zonaSegura");
+  window.plugins.NativeAudio.unload("zonaProtegida");
+
   /*
   $sonarSound.release();
   $protecSound.release();
@@ -79,36 +152,40 @@ function liberarSonidos() {
   */
 }
 
-
-function cambiaPantalla () {
+function cambiaPantalla() {
   //$temp = window.setInterval("alertar", 4000);
   // El intervalo a partir de 200 es para obtener siempre colores brillantes.
-  rojo = getRandomInt(200,256);
-  verde = getRandomInt(200,256);
-  azul = getRandomInt(200,256);
-  $("#proteccion").css("background-color", "rgb(" + rojo + "," +  verde + "," + azul +")");
+  rojo = getRandomInt(200, 256);
+  verde = getRandomInt(200, 256);
+  azul = getRandomInt(200, 256);
+  $("#proteccion").css(
+    "background-color",
+    "rgb(" + rojo + "," + verde + "," + azul + ")"
+  );
   console.log("Cambiado color de pantalla");
-/*
+  /*
   $("#proteccion").css("background-color", "rgb(" + 21 + "," +  247 + "," + 251 +")");
   $temp = setTimeout(function(){$("#proteccion").css("background-color", "black")}, 500);
   console.log("Cambiado color de pantalla");
   */
 }
 
-
-function actualizaBotones (ident) {
+function actualizaBotones(ident) {
   var botones = ["scanner", "proteccion", "mapa"];
   var color = "yellow";
-  botones.forEach (function (aux) {
+  botones.forEach(function(aux) {
     if (aux === ident) {
-      $("#"+ident+"-text").addClass(color + "-text");
-      $("#"+ident+"-boton").removeClass("indigo");
-      $("#"+ident+"-boton").attr("src","./img/boton_"+ident+"_pulsado.png");
-      $("#"+ident+"-boton").addClass(color);
+      $("#" + ident + "-text").addClass(color + "-text");
+      $("#" + ident + "-boton").removeClass("indigo");
+      $("#" + ident + "-boton").attr(
+        "src",
+        "./img/boton_" + ident + "_pulsado.png"
+      );
+      $("#" + ident + "-boton").addClass(color);
     } else {
       $("#" + aux + "-text").removeClass(color + "-text");
       $("#" + aux + "-boton").removeClass(color);
-      $("#" + aux + "-boton").attr("src","./img/boton_" + aux + ".png");
+      $("#" + aux + "-boton").attr("src", "./img/boton_" + aux + ".png");
       $("#" + aux + "-boton").addClass("indigo");
     }
   });
@@ -123,21 +200,21 @@ function actualizaBotones (ident) {
 
 function mostrarSolo(ident) {
   var pantalla = ["scanner", "proteccion", "mapa"];
-  pantalla.forEach (function (aux) {
+  pantalla.forEach(function(aux) {
     $("#" + aux).hide();
   });
   if (ident !== "scanner") {
-      app.stopCamera();
-  } if (ident !== "mapa") {
+    app.stopCamera();
+  }
+  if (ident !== "mapa") {
     //var onda = document.getElementById('onda');
-/*onda.removeEventListener("animationiteration", function(){"Sonido sonar quitado"}, false);*/
+    /*onda.removeEventListener("animationiteration", function(){"Sonido sonar quitado"}, false);*/
     //onda.removeEventListener("webkitAnimationIteration", function(){"Sonido sonar quitado"}, false);
     //$("#onda").removeClass("circulo");
     //manilla.removeEventListener("webkitAnimationIteration", function(){"Sonido sonar quitado"}, false);
   }
 
   if (ident === "mapa") {
-
     //var onda = document.getElementById("onda");
     /*
     onda.addEventListener("animationiteration", function() {
@@ -170,14 +247,15 @@ function mostrarSolo(ident) {
         }
       );
     }, false);*/
-    window.plugins.NativeAudio.play('sonar',
-      function(){
+    window.plugins.NativeAudio.play(
+      "sonar",
+      function() {
         console.log("Sonar Emitido");
       },
-      function(){
+      function() {
         console.log("Error en Sonar");
       },
-      function(){
+      function() {
         console.log("Sonar final");
       }
     );
@@ -187,7 +265,7 @@ function mostrarSolo(ident) {
     //$("#manilla").addClass("girar");
     //var manilla = document.getElementById('manilla');
     //manilla.addEventListener("animationiteration", function(){
-      //$sonarSound.play();
+    //$sonarSound.play();
     //}, false);
     //manilla.addEventListener("webkitAnimationIteration", function(){
     //  $sonarSound.play();
@@ -200,7 +278,7 @@ function mostrarSolo(ident) {
     $("#agarraTlf").attr("src", "./img/sujetar_telefono.png");
     */
     pantallaProteccion();
-    $("#canvas").css("filter","url('#liquid')");
+    $("#canvas").css("filter", "url('#liquid')");
     /*
     $("#proteccion").css("z-index", "-2");
     $("#canvas").css("z-index", "-1");
@@ -211,10 +289,11 @@ function mostrarSolo(ident) {
     console.log("Clase bienHecho removida");
     $("#objetivo").hide();
   }
-  $("#"+ident).show();
+  $("#" + ident).show();
 }
 
 function getMediaURL(s) {
-    if(device.platform.toLowerCase() === "android") return "/android_asset/www/" + s;
-    return s;
+  if (device.platform.toLowerCase() === "android")
+    return "/android_asset/www/" + s;
+  return s;
 }
