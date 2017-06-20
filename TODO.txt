@@ -1,0 +1,5 @@
+FIXME: android se ve algunas líneas cuando están ocultas algunas imágenes
+
+TODO: Añadir guía
+
+TODO: Añadir valoración
