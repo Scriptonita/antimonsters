@@ -189,46 +189,9 @@ function mostrarSolo(ident) {
     app.stopCamera();
   }
   if (ident !== "mapa") {
-    //var onda = document.getElementById('onda');
-    /*onda.removeEventListener("animationiteration", function(){"Sonido sonar quitado"}, false);*/
-    //onda.removeEventListener("webkitAnimationIteration", function(){"Sonido sonar quitado"}, false);
-    //$("#onda").removeClass("circulo");
-    //manilla.removeEventListener("webkitAnimationIteration", function(){"Sonido sonar quitado"}, false);
   }
 
   if (ident === "mapa") {
-    //var onda = document.getElementById("onda");
-    /*
-    onda.addEventListener("animationiteration", function() {
-      //$sonarSound.play();
-      window.plugins.NativeAudio.play('sonar',
-        function(){
-          console.log("Sonar Emitido");
-        },
-        function(){
-          console.log("Error en Sonar");
-        },
-        function(){
-          console.log("Sonar final");
-        }
-      );
-    }, false);
-    */
-    /*
-    onda.addEventListener("webkitAnimationIteration", function() {
-      //$sonarSound.play();
-      window.plugins.NativeAudio.play('sonar',
-        function(){
-          console.log("Sonar Emitido");
-        },
-        function(){
-          console.log("Error en Sonar");
-        },
-        function(){
-          console.log("Sonar final");
-        }
-      );
-    }, false);*/
     window.plugins.NativeAudio.play(
       "sonar",
       function() {
@@ -241,30 +204,9 @@ function mostrarSolo(ident) {
         console.log("Sonar final");
       }
     );
-    //$("#onda").attr("width", $("#mapa").width());
-    //$("#onda").attr("height", $("#mapa").width());
-    //$("#manilla").attr("src", "./img/radar-manilla.png");
-    //$("#manilla").addClass("girar");
-    //var manilla = document.getElementById('manilla');
-    //manilla.addEventListener("animationiteration", function(){
-    //$sonarSound.play();
-    //}, false);
-    //manilla.addEventListener("webkitAnimationIteration", function(){
-    //  $sonarSound.play();
-    //}, false);
   } else if (ident === "proteccion") {
-    //$("main").css("background-image
-    /*
-    $("#protegiendo").css("background-image","url('./img/azules.gif')");
-    $("#agarraTlf").removeClass("bienHecho").removeClass("efectoRayo");
-    $("#agarraTlf").attr("src", "./img/sujetar_telefono.png");
-    */
     pantallaProteccion();
     $("#canvas").css("filter", "url('#liquid')");
-    /*
-    $("#proteccion").css("z-index", "-2");
-    $("#canvas").css("z-index", "-1");
-    */
   } else if (ident === "scanner") {
     $("#objetivo").removeClass("bienHecho");
     $("#objetivo").attr("src", "");
