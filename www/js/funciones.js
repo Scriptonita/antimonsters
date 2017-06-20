@@ -152,24 +152,6 @@ function liberarSonidos() {
   */
 }
 
-function cambiaPantalla() {
-  //$temp = window.setInterval("alertar", 4000);
-  // El intervalo a partir de 200 es para obtener siempre colores brillantes.
-  rojo = getRandomInt(200, 256);
-  verde = getRandomInt(200, 256);
-  azul = getRandomInt(200, 256);
-  $("#proteccion").css(
-    "background-color",
-    "rgb(" + rojo + "," + verde + "," + azul + ")"
-  );
-  console.log("Cambiado color de pantalla");
-  /*
-  $("#proteccion").css("background-color", "rgb(" + 21 + "," +  247 + "," + 251 +")");
-  $temp = setTimeout(function(){$("#proteccion").css("background-color", "black")}, 500);
-  console.log("Cambiado color de pantalla");
-  */
-}
-
 function actualizaBotones(ident) {
   var botones = ["scanner", "proteccion", "mapa"];
   var color = "yellow";
