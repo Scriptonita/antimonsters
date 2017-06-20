@@ -170,6 +170,7 @@ function proteccionOK() {
           $temp = setTimeout(function() {
             actualizaBotones("proteccion");
             mostrarSolo("proteccion");
+            $("#hechizo").show();
             console.log("Se programa la vuelta a proteccion en 6 Seg");
             $accion = false;
             $("#protegidoOk").removeClass("bienHecho");

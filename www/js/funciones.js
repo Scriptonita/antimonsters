@@ -188,9 +188,6 @@ function mostrarSolo(ident) {
   if (ident !== "scanner") {
     app.stopCamera();
   }
-  if (ident !== "mapa") {
-  }
-
   if (ident === "mapa") {
     window.plugins.NativeAudio.play(
       "sonar",
@@ -214,6 +211,10 @@ function mostrarSolo(ident) {
     $("#objetivo").hide();
   }
   $("#" + ident).show();
+  $("#filtros").hide();
+  $("#objetivo").hide();
+  $("#hechizo").hide();
+  $("#trasero").hide();
 }
 
 function getMediaURL(s) {

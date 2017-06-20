@@ -1,15 +1,22 @@
-
 dimensionarApp();
 
 var app = {
-
-  startCameraAnotherPos: function(toBack){
+  startCameraAnotherPos: function(toBack) {
     var tapEnabled = false; //enable tap take picture
     var dragEnabled = false; //enable preview box drag across the screen
-    CameraPreview.startCamera({x: 0, y: 0, width: window.innerWidth, height: (window.innerHeight), camera: "back", tapEnabled, dragEnabled, toBack});
+    CameraPreview.startCamera({
+      x: 0,
+      y: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      camera: "back",
+      tapEnabled,
+      dragEnabled,
+      toBack
+    });
   },
 
-  stopCamera: function(){
+  stopCamera: function() {
     CameraPreview.stopCamera();
   },
 
@@ -18,7 +25,8 @@ var app = {
     $("#accion-boton").attr("src", "./img/boton_accion_pulsado.png");
     $("#accion-boton").removeClass("indigo");
     $("#accion-boton").addClass("red");
-
+    $("#filtros").show();
+    $("#objetivo").show();
     $("#objetivo").attr("src", "./img/mirilla3.png");
     //$("#objetivo").removeClass("bienHecho");
     $("#objetivo").css("height", "100%");
@@ -26,14 +34,14 @@ var app = {
     $("#objetivo").attr("width", "100%");
     $("#objetivo").attr("height", "100%");
     $("#objetivo").show();
-    CameraPreview.setFlashMode('torch');
+    CameraPreview.setFlashMode("torch");
     $efectIndex = 0;
     scanearDimensiones();
   },
 
   pararScaneoProfundo: function() {
     console.log("Se para el scaneado");
-    CameraPreview.setFlashMode('off');
+    CameraPreview.setFlashMode("off");
     window.plugins.NativeAudio.stop("scanner");
     //$scannerSound.seekTo(0);
     CameraPreview.setColorEffect("none");
@@ -69,6 +77,7 @@ var app = {
     //$("#nombreApp").html("AntiMonsterS");
     $("#accion-boton").attr("src", "./img/boton_accion.png");
     mostrarSolo("proteccion");
+    $("#hechizo").show();
   },
 
   escanear: function() {
@@ -79,6 +88,7 @@ var app = {
 
   proteger: function() {
     mostrarSolo("proteccion");
+    $("#hechizo").show();
   },
 
   aMapa: function() {
@@ -90,7 +100,11 @@ var app = {
 
   iniciarLocalizacionPrecisa: function() {
     $("#accion-boton").attr("src", "./img/boton_accion_gps.png");
-    $watchID = navigator.geolocation.watchPosition(actualizarMapa, errorMapa, { maximunAge:30000 ,timeout: 35000, enableHighAccuracy: true});
+    $watchID = navigator.geolocation.watchPosition(actualizarMapa, errorMapa, {
+      maximunAge: 30000,
+      timeout: 35000,
+      enableHighAccuracy: true
+    });
   },
 
   detenerLocalizacionPrecisa: function() {
@@ -101,21 +115,22 @@ var app = {
 
   botonScanner: function(event) {
     event.stopImmediatePropagation();
-    window.plugins.NativeAudio.play('boton',
-      function(){
+    window.plugins.NativeAudio.play(
+      "boton",
+      function() {
         console.log("Botón Presionado");
       },
-      function(){
+      function() {
         console.log("Error en Botón");
       },
-      function(){
+      function() {
         console.log("Botón Ok");
       }
     );
 
     if ($enScanner === false && $accion === false) {
       actualizaBotones("scanner");
-      $("body").css("background-image","");
+      $("body").css("background-image", "");
       $("body").css("background-color", "transparent");
       if ($enMapa) {
         if ($watchID !== null) {
@@ -132,14 +147,15 @@ var app = {
 
   botonProteccion: function(event) {
     event.stopImmediatePropagation();
-    window.plugins.NativeAudio.play('boton',
-      function(){
+    window.plugins.NativeAudio.play(
+      "boton",
+      function() {
         console.log("Botón Presionado");
       },
-      function(){
+      function() {
         console.log("Error en Botón");
       },
-      function(){
+      function() {
         console.log("Botón Ok");
       }
     );
@@ -148,8 +164,8 @@ var app = {
       actualizaBotones("proteccion");
       if ($enMapa) {
         if ($watchID !== null) {
-        navigator.geolocation.clearWatch($watchID);
-        $watchID = null;
+          navigator.geolocation.clearWatch($watchID);
+          $watchID = null;
         }
       }
       $enScanner = false;
@@ -162,20 +178,21 @@ var app = {
   botonMapa: function(event) {
     event.stopImmediatePropagation();
     //$botonSound.play();
-    window.plugins.NativeAudio.play('boton',
-      function(){
+    window.plugins.NativeAudio.play(
+      "boton",
+      function() {
         console.log("Botón Presionado");
       },
-      function(){
+      function() {
         console.log("Error en Botón");
       },
-      function(){
+      function() {
         console.log("Botón Ok");
       }
     );
     if ($enMapa === false && $accion === false) {
       actualizaBotones("mapa");
-      $("body").css("background-image","");
+      $("body").css("background-image", "");
       $("body").css("background-color", "transparent");
       $enScanner = false;
       $enProteccion = false;
@@ -186,14 +203,15 @@ var app = {
 
   botonAccion: function(event) {
     event.stopImmediatePropagation();
-    window.plugins.NativeAudio.play('boton',
-      function(){
+    window.plugins.NativeAudio.play(
+      "boton",
+      function() {
         console.log("Botón Presionado");
       },
-      function(){
+      function() {
         console.log("Error en Botón");
       },
-      function(){
+      function() {
         console.log("Botón Ok");
       }
     );
@@ -207,7 +225,6 @@ var app = {
         // Zona escanner escaneando zona específica
         console.log("Quito escaneo!!");
         app.pararScaneoProfundo();
-
       } else if (!$enScanner && !$accion) {
         // Estamos en Proteccion a la espera
         app.iniciarProteccion();
@@ -215,7 +232,7 @@ var app = {
       } else {
         // Estamos en Proteccion protegiendo
         app.pararProteccion();
-        console.log(("Parar la protección"));
+        console.log("Parar la protección");
       }
     } else {
       if (!$accion) {
@@ -229,12 +246,15 @@ var app = {
     $accion = !$accion;
   },
 
-  init: function(){
-
-    window.addEventListener('load', function() {
-      new FastClick(document.body);
-      console.log("FastClick cargado");
-    }, false);
+  init: function() {
+    window.addEventListener(
+      "load",
+      function() {
+        new FastClick(document.body);
+        console.log("FastClick cargado");
+      },
+      false
+    );
 
     iniciarVariables();
     // Carga de Sonidos
@@ -243,37 +263,61 @@ var app = {
     actualizaBotones("scanner");
     app.escanear();
 
-    document.getElementById('scanner-boton').addEventListener('click', this.botonScanner, false);
-    document.getElementById('proteccion-boton').addEventListener('click', this.botonProteccion, false);
-    document.getElementById('mapa-boton').addEventListener('click', this.botonMapa, false);
-    document.getElementById('accion-boton').addEventListener('click', this.botonAccion, false);
+    document
+      .getElementById("scanner-boton")
+      .addEventListener("click", this.botonScanner, false);
+    document
+      .getElementById("proteccion-boton")
+      .addEventListener("click", this.botonProteccion, false);
+    document
+      .getElementById("mapa-boton")
+      .addEventListener("click", this.botonMapa, false);
+    document
+      .getElementById("accion-boton")
+      .addEventListener("click", this.botonAccion, false);
 
     var onda = document.getElementById("onda");
-    onda.addEventListener("webkitAnimationIteration", function() {
-      window.plugins.NativeAudio.play('sonar');
-    }, false);
+    onda.addEventListener(
+      "webkitAnimationIteration",
+      function() {
+        window.plugins.NativeAudio.play("sonar");
+      },
+      false
+    );
     window.plugins.insomnia.keepAwake();
     navigator.splashscreen.hide();
   }
 };
 
-document.addEventListener('deviceready', function(){
-  app.init();
-}, false);
+document.addEventListener(
+  "deviceready",
+  function() {
+    app.init();
+  },
+  false
+);
 
-document.addEventListener('resume', function(){
-  if ($accion) {
-    iniciarVariables();
-    actualizaBotones("scanner");
-    app.escanear();
-  }
-  //app.init();
-  cargarSonidos();
-}, false);
+document.addEventListener(
+  "resume",
+  function() {
+    if ($accion) {
+      iniciarVariables();
+      actualizaBotones("scanner");
+      app.escanear();
+    }
+    //app.init();
+    cargarSonidos();
+  },
+  false
+);
 
-document.addEventListener('pause', function(){
-  liberarSonidos();
-  clearInterval($scan);
-  clearInterval($temp);
-  clearInterval($vibr);
-}, false);
+document.addEventListener(
+  "pause",
+  function() {
+    liberarSonidos();
+    clearInterval($scan);
+    clearInterval($temp);
+    clearInterval($vibr);
+  },
+  false
+);
