@@ -38,7 +38,7 @@ function cargarSonidos() {
 
   window.plugins.NativeAudio.preloadComplex(
     "hechizo",
-    "audio/proteccion.mp3",
+    "audio/hechizo.mp3",
     1,
     1,
     0,
