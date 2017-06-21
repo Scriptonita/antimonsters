@@ -229,7 +229,7 @@ class Ball {
     this.angle = Math.PI * 2 * Math.random();
     this.vx = (1.3 + Math.random() * 0.3) * Math.cos(this.angle);
     this.vy = (1.3 + Math.random() * 0.3) * Math.sin(this.angle);
-    this.r = 15 * Math.random(); //6 + 3 * Math.random();
+    this.r = 6 + 3 * Math.random();
     this.color = colorPallete[Math.floor(Math.random() * colorPallete.length)];
   }
 
