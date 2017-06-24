@@ -11,19 +11,6 @@ function dimensionarApp() {
   //dimensionarMapa();
 }
 
-// Carga los sonidos del sistema
-/*
-function cargarSonidos () {
-  $scannerSound = document.getElementById('audioScanner');
-  $scannerSound.addEventListener('ended', scanearDimensiones);
-  $protecSound = document.getElementById('audioHechizo');
-  $protecSound.addEventListener('ended', proteccionOK);
-  $sonarSound = document.getElementById('audioSonar');
-  $botonSound = document.getElementById('clickBoton');
-  $okSound = document.getElementById('audioOk');
-}
-*/
-
 function cargarSonidos() {
   window.plugins.NativeAudio.preloadComplex(
     "scanner",
@@ -145,14 +132,6 @@ function liberarSonidos() {
   window.plugins.NativeAudio.unload("sonar");
   window.plugins.NativeAudio.unload("zonaSegura");
   window.plugins.NativeAudio.unload("zonaProtegida");
-
-  /*
-  $sonarSound.release();
-  $protecSound.release();
-  $scannerSound.release();
-  $botonSound.release();
-  $okSound.release();
-  */
 }
 
 function actualizaBotones(ident) {

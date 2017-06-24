@@ -41,10 +41,6 @@ main {
   /*background-color: #00f6ff;*/
 }
 
-#audiosApp {
-  visibility: hidden;
-}
-
 #scanner {
   z-index: -1;
 }
@@ -75,6 +71,7 @@ footer.page-footer {
   background-image: url('../img/fondo_botonera.gif');
   background-position: center;
   background-size: 90%;
+  border: none;
 }
 
 .nombreApp {

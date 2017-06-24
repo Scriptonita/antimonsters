@@ -10,18 +10,6 @@
   height: 100%;
 }
 
-@keyframes fondoHechizo2 {
-  0% {
-    background-color: #13fdfe;
-  }
-  50% {
-    background-color: #020232;
-  }
-  100% {
-    background-color: #13fdfe;
-  }
-}
-
 .bienHecho {
   animation: mover 5.5s 1;
 }

@@ -1,11 +1,4 @@
-
-// FIXME: Cuando está en imagen Seguros/segurosOk si le da accion la lía
-// FIXME: posición manilla radar
-// FIXME: que al pausar sonidos vuelvan al inicio
-// FIXME: Al parar scanner sigue sonando, hay que controlar la interrupción que hace el media.puse();
-
-
-$efectos = ['none', 'negative', 'mono', 'posterize', 'sepia'];
+$efectos = ["none", "negative", "mono", "posterize", "sepia"];
 $efectIndex = 0;
 $protectIndex = 0;
 $aux4x100 = 0;
@@ -32,8 +25,7 @@ $scannerStatus = 0;
 $alternar_rayos = 0;
 $animacion = null;
 
-
-function iniciarVariables () {
+function iniciarVariables() {
   $efectIndex = 0;
   $protectIndex = 0;
   $temp = null;

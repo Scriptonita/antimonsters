@@ -1,27 +1,4 @@
 function iniciarHechizo() {
-  //$("#hechizo").html("");
-  //$("#proteccion").addClass("fondoPoderoso");
-  /*
-  $("#hechizo").html('  \
-    <div id="contenedorHechizo" class="hechizandozz" width="' +  $("main").width() + '" height="' +  + '"> \
-      <img id="rayos" width="' +  $("main").width() + '" height="' + $("main").height() + '" />  \
-    </div>  \
-  ');
-  */
-  /*
-  $("#hechizo").html('  \
-    <canvas id="canvasH"></canvas> \
-    <svg>  \
-      <defs>  \
-        <filter id="goo"> \
-          <fegaussianblur in="SourceGraphic" stddeviation="10" result="blur" /> \
-          <fecolorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -9"/>  \
-        </filter>   \
-      </defs> \
-    </svg>  \
-    <img id="rayos" class="rayos" width="100%" height="100%" /> \
-  ');
-*/
   $("#hechizo").append(
     `<img id="rayos" class="rayos" width="100%" height="100%" />`
   );
@@ -41,18 +18,6 @@ function iniciarHechizo() {
       proteccionOK();
     }
   );
-  //$protecSound.play();
-  /*
-  $vibraciones = 1;
-  navigator.vibrate(3000);
-  vibraMovil();
-  $vibr = setInterval(function() {
-    navigator.vibrate(3000);
-    vibraMovil();
-    $vibraciones++;
-    $("#nombreApp").html("Vibración " + $vibraciones);
-  }, 6000);
-  */
 
   contextH = document.getElementById("canvasH").getContext("2d");
   colorPallete = [
@@ -139,15 +104,6 @@ function proteccionOK() {
       </div>  \
     '
   );
-  //$("#hechizo").hide();
-  //$("#protegiendo").removeClass("hechizo");
-  //$("#protegiendo").addClass("fondoPoderoso");
-
-  //$("#agarraTlf").show();
-  //$("#proteccion").removeClass("efectoRayoTrasero");
-  //$("#efectoHechizo").remove();
-  //$("#protegidoOk").attr("src", "./img/seguros.png");
-  //$("#protegidoOk").addClass("bienHecho");
 
   window.plugins.NativeAudio.play(
     "temaOk",
@@ -198,9 +154,6 @@ function ejecutarHechizo() {
     contextH.fill();
     b.update();
   }
-
-  //origin.x += (mouse.x - origin.x) * .15;
-  //origin.y += (mouse.y - origin.y) * .15;
 
   contextH.fillStyle = "#13fdfe";
   contextH.beginPath();
