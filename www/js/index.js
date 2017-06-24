@@ -294,11 +294,11 @@ var app = {
       false
     );
     window.plugins.insomnia.keepAwake();
-    navigator.splashscreen.hide();
     if (typeof localStorage.getItem("primeraVez") !== "undefined") {
       $.prompt(tour);
       $("#nombreApp").css("color", "#ff0000");
     }
+    navigator.splashscreen.hide();
   }
 };
 
