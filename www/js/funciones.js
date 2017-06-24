@@ -153,7 +153,7 @@ function actualizaBotones(ident) {
       $("#" + aux + "-boton").addClass("indigo");
     }
   });
-  if (ident === "scanner" || ident === "proteccion" || ident === "tutorial") {
+  if (ident === "scanner" || ident === "proteccion") {
     $("#accion-boton").attr("src", "./img/boton_accion.png");
     $("#accion-text").html("Acción");
   } else {
@@ -163,7 +163,7 @@ function actualizaBotones(ident) {
 }
 
 function mostrarSolo(ident) {
-  var pantalla = ["scanner", "proteccion", "mapa", "tutorial"];
+  var pantalla = ["scanner", "proteccion", "mapa"];
   pantalla.forEach(function(aux) {
     $("#" + aux).hide();
   });

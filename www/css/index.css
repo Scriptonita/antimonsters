@@ -40,17 +40,17 @@ main {
   border-width: 4%;
   /*background-color: #00f6ff;*/
 }
-
+/*
 #scanner {
   z-index: -1;
-}
+}*/
 
 #objetivo {
   z-index: 16;
 }
 
 #proteccion, #mapa {
-  display: hidden;
+  visibility: hidden;
 }
 
 footer.page-footer {

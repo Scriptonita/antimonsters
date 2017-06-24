@@ -1,5 +1,6 @@
 function scanearDimensiones() {
   //if ($scannerStatus !== 3) {
+  $("#objetivo").show();
   if ($efectIndex < 5) {
     if ($efectIndex !== 0) {
       CameraPreview.setColorEffect($efectos[$efectIndex]);

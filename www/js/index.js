@@ -1,13 +1,6 @@
 //dimensionarApp();
 
 var app = {
-  tutorial: function() {
-    actualizaBotones("tutorial");
-    mostrarSolo("tutorial");
-    $.prompt(tour);
-    $("#nombreApp").css("color", "#ee6e73");
-  },
-
   startCameraAnotherPos: function(toBack) {
     var tapEnabled = false; //enable tap take picture
     var dragEnabled = false; //enable preview box drag across the screen
@@ -88,6 +81,8 @@ var app = {
   },
 
   escanear: function() {
+    $("#scanner").css("width", "100%");
+    $("#scanner").css("height", "100%");
     mostrarSolo("scanner");
     app.startCameraAnotherPos(true);
     $efectIndex = 0;
@@ -148,6 +143,7 @@ var app = {
       $enScanner = true;
       $enProteccion = false;
       $enMapa = false;
+      $("#scanner").css("visibility", "visible");
       app.escanear();
     }
   },
@@ -178,6 +174,7 @@ var app = {
       $enScanner = false;
       $enProteccion = true;
       $enMapa = false;
+      $("#proteccion").css("visibility", "visible");
       app.proteger();
     }
   },
@@ -204,6 +201,7 @@ var app = {
       $enScanner = false;
       $enProteccion = false;
       $enMapa = true;
+      $("#mapa").css("visibility", "visible");
       app.aMapa();
     }
   },
