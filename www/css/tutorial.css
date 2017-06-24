@@ -1,0 +1,17 @@
+div.jqi .jqisubstate {
+  width: 100%;
+  left: 0;
+  font-family: "Monster_buttons";
+  color: black;
+}
+
+.jqistate {
+  font-family: "Monster_buttons";
+  color: black;
+}
+
+.img_accion {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+}

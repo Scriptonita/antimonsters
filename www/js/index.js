@@ -1,6 +1,13 @@
-dimensionarApp();
+//dimensionarApp();
 
 var app = {
+  tutorial: function() {
+    actualizaBotones("tutorial");
+    mostrarSolo("tutorial");
+    $.prompt(tour);
+    $("#nombreApp").css("color", "#ee6e73");
+  },
+
   startCameraAnotherPos: function(toBack) {
     var tapEnabled = false; //enable tap take picture
     var dragEnabled = false; //enable preview box drag across the screen
@@ -247,21 +254,15 @@ var app = {
   },
 
   init: function() {
-    window.addEventListener(
-      "load",
-      function() {
-        new FastClick(document.body);
-        console.log("FastClick cargado");
-      },
-      false
-    );
+    new FastClick(document.body);
 
     iniciarVariables();
     // Carga de Sonidos
     cargarSonidos();
-
     actualizaBotones("scanner");
     app.escanear();
+
+    //dimensionarApp();
 
     document
       .getElementById("scanner-boton")
@@ -275,6 +276,14 @@ var app = {
     document
       .getElementById("accion-boton")
       .addEventListener("click", this.botonAccion, false);
+    document.getElementById("nombreApp").addEventListener(
+      "click",
+      function() {
+        $.prompt(tour);
+        $("#nombreApp").css("color", "#ff0000");
+      },
+      false
+    );
 
     var onda = document.getElementById("onda");
     onda.addEventListener(
@@ -286,6 +295,10 @@ var app = {
     );
     window.plugins.insomnia.keepAwake();
     navigator.splashscreen.hide();
+    if (typeof localStorage.getItem("primeraVez") !== "undefined") {
+      $.prompt(tour);
+      $("#nombreApp").css("color", "#ff0000");
+    }
   }
 };
 

@@ -5,6 +5,9 @@ function dimensionarApp() {
   $("#proteccion").css("height", "100%");
   $("#hechizo").css("height", "100%");
   $("#hechizo").css("width", "100%");
+
+  $("#tutorial").css("height", "100%");
+  $("#tutorial").css("width", "100%");
   //dimensionarMapa();
 }
 
@@ -171,7 +174,7 @@ function actualizaBotones(ident) {
       $("#" + aux + "-boton").addClass("indigo");
     }
   });
-  if (ident === "scanner" || ident === "proteccion") {
+  if (ident === "scanner" || ident === "proteccion" || ident === "tutorial") {
     $("#accion-boton").attr("src", "./img/boton_accion.png");
     $("#accion-text").html("Acción");
   } else {
@@ -181,7 +184,7 @@ function actualizaBotones(ident) {
 }
 
 function mostrarSolo(ident) {
-  var pantalla = ["scanner", "proteccion", "mapa"];
+  var pantalla = ["scanner", "proteccion", "mapa", "tutorial"];
   pantalla.forEach(function(aux) {
     $("#" + aux).hide();
   });
@@ -215,6 +218,7 @@ function mostrarSolo(ident) {
   $("#objetivo").hide();
   $("#hechizo").hide();
   $("#trasero").hide();
+  $("#nombreApp").css("color", "#ffffff");
 }
 
 function getMediaURL(s) {
