@@ -1,7 +1,4 @@
-TODO: Añadir guía
 
 TODO: Añadir valoración
 
 FIX: Lógica de pulsar botones poner dentro del audio.
-
-FIX: Quitar autohide de splash tras 5000ms.

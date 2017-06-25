@@ -292,9 +292,10 @@ var app = {
       false
     );
     window.plugins.insomnia.keepAwake();
-    if (typeof localStorage.getItem("primeraVez") !== "undefined") {
+    if (localStorage.getItem("guia") !== "guiado") {
       $.prompt(tour);
       $("#nombreApp").css("color", "#ff0000");
+      localStorage.setItem("guia", "guiado");
     }
     navigator.splashscreen.hide();
   }
