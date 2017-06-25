@@ -8,7 +8,7 @@ var app = {
       x: 0,
       y: 0,
       width: window.innerWidth,
-      height: window.innerHeight,
+      height: window.innerHeight - 50,
       camera: "back",
       tapEnabled,
       dragEnabled,
