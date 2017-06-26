@@ -72,7 +72,7 @@ footer.page-footer {
   background-image: url('../img/fondo_botonera.gif');
   background-position: center;
   background-size: 90%;
-  border: none;
+  background-repeat: no-repeat;
 }
 
 .nombreApp {

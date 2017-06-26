@@ -277,7 +277,7 @@ var app = {
     document.getElementById("nombreApp").addEventListener(
       "click",
       function() {
-        $.prompt(tour);
+        $.prompt(tour, { overlayspeed: "fast", top: "10%" });
         $("#nombreApp").css("color", "#ff0000");
       },
       false
@@ -293,7 +293,7 @@ var app = {
     );
     window.plugins.insomnia.keepAwake();
     if (localStorage.getItem("guia") !== "guiado") {
-      $.prompt(tour);
+      $.prompt(tour, { overlayspeed: "fast", top: "10%" });
       $("#nombreApp").css("color", "#ff0000");
       localStorage.setItem("guia", "guiado");
     }
