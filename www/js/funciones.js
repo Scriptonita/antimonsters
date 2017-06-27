@@ -90,7 +90,8 @@ function cargarSonidos() {
     lng !== "en" &&
     lng !== "de" &&
     lng !== "fr" &&
-    lng !== "it"
+    lng !== "it" &&
+    lng !== "pt"
   ) {
     lng = "en";
   }
