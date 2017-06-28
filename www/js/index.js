@@ -315,6 +315,8 @@ document.addEventListener(
     if ($accion) {
       iniciarVariables();
       actualizaBotones("scanner");
+      $("body").css("background-image", "");
+      $("body").css("background-color", "transparent");
       app.escanear();
     }
     //app.init();
@@ -326,10 +328,20 @@ document.addEventListener(
 document.addEventListener(
   "pause",
   function() {
+    if ($accion) {
+      if ($enScanner) {
+        app.pararScaneoProfundo();
+      } else if ($enProteccion) {
+        app.pararProteccion();
+      } else if ($enMapa) {
+        app.detenerLocalizacionPrecisa();
+      }
+    }
     liberarSonidos();
     clearInterval($scan);
     clearInterval($temp);
     clearInterval($vibr);
+    $accion = false;
   },
   false
 );
