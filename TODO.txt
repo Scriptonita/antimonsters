@@ -2,3 +2,5 @@
 TODO: Añadir valoración
 
 FIX: Lógica de pulsar botones poner dentro del audio.
+
+FIX: En ios cuando se sale de la app en medio de hechizo y se vuelve da fallos. Hay que inicializar.

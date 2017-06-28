@@ -1,8 +1,6 @@
 var languaje = navigator.language || navigator.userLanguage;
 var lng = languaje.substring(0, 2);
 
-lng = "ch";
-
 if (["es", "en", "de", "fr", "it"].includes(lng) === false) {
   lng = "en";
 }

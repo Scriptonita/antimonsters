@@ -22,10 +22,11 @@ var app = {
 
   iniciarScaneoProfundo: function() {
     console.log("Se inicia el scaneado");
+    $efectIndex = 0;
+    CameraPreview.setColorEffect($efectos["none"]);
     $("#accion-boton").attr("src", "./img/boton_accion_pulsado.png");
     $("#accion-boton").removeClass("indigo");
     $("#accion-boton").addClass("red");
-    $("#filtros").show();
     $("#objetivo").show();
     $("#objetivo").attr("src", "./img/mirilla3.png");
     //$("#objetivo").removeClass("bienHecho");
@@ -35,7 +36,6 @@ var app = {
     $("#objetivo").attr("height", "100%");
     $("#objetivo").show();
     CameraPreview.setFlashMode("torch");
-    $efectIndex = 0;
     scanearDimensiones();
   },
 
