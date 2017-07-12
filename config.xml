@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.scriptonita.antimonsters" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.scriptonita.antimonsters" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>AntiMonsterS</name>
     <description>Protege la habitación de tus hijos contra monstruos, fantasmas y seres irreales de todo tipo.</description>
     <author email="contacto@scriptonita.com" href="http://www.scriptonita.com">Scriptonita</author>
