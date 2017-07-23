@@ -1,4 +1,0 @@
-
-TODO: Añadir valoración
-
-FIX: En google maps poner API Key e intentar quitar términos de uso y si es posible Google.
