@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.scriptonita.antimonsters" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.scriptonita.antimonsters" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>AntiMonsterS</name>
     <description>Protege la habitación de tus hijos contra monstruos, fantasmas y seres irreales de todo tipo.</description>
     <author email="contacto@scriptonita.com" href="http://www.scriptonita.com">Scriptonita</author>
@@ -62,8 +62,8 @@
         <icon height="40" src="www/res/icon/ios/Icon-Small-40.png" width="40" />
         <icon height="80" src="www/res/icon/ios/Icon-Small-40@2x.png" width="80" />
         <icon height="120" src="www/res/icon/ios/Icon-Small-40@3x.png" width="120" />
-        <icon height="50" src="www/res/icon/ios/Icon-Small-50.png" width="50" /> //
-        <icon height="100" src="www/res/icon/ios/Icon-Small-50@2x.png" width="152" />
+        <icon height="50" src="www/res/icon/ios/Icon-Small-50.png" width="50" />
+        <icon height="100" src="www/res/icon/ios/Icon-Small-50@2x.png" width="100" />
         <icon height="29" src="www/res/icon/ios/Icon-Small.png" width="29" />
         <icon height="58" src="www/res/icon/ios/Icon-Small@2x.png" width="58" />
         <icon height="87" src="www/res/icon/ios/Icon-Small@3x.png" width="87" />
